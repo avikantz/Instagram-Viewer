@@ -15,6 +15,9 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <KWTransition/KWTransition.h>
 
+// Set your client ID here...
+#define kClientID @""
+
 @interface InstagramV2ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIViewControllerTransitioningDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) KWTransition *transition;
@@ -81,7 +84,7 @@
 	
 	instagramObjects = [NSMutableArray new];
 	
-	NSString *URLString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=fd6b3100174e42d7aa7d546574e01c76", self.searchBar.text];
+	NSString *URLString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=%@", self.searchBar.text, kClientID];
 	
 	nextURL = [NSURL URLWithString:URLString];
 	
